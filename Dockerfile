@@ -1,8 +1,9 @@
 FROM node:4.0.0
 COPY package.json  /opt/app-root/src/
 WORKDIR /opt/app-root/src
+RUN yum -y install tar
 RUN chmod -R 755 /opt/app-root/src
-RUN chown -R 1001:1001 /opt/app-root/src 
+RUN chown -R 1000060000:1000060000 /opt/app-root/src 
 RUN useradd -M 1001
 RUN npm install
 ADD . /opt/app-root/src
